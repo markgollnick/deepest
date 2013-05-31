@@ -85,6 +85,7 @@ def print_footer():
     Prints the footer for the results table, containing the longest path and
     deepest directory encountered.
     """
+    global longest_file, deepest_path
     print ''
     print 'longest file: %s' % longest_file
     print 'deepest path: %s' % deepest_path

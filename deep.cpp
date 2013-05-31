@@ -1,8 +1,8 @@
 #include "builtin.hpp"
+#include "stat.hpp"
 #include "sys.hpp"
 #include "os/path.hpp"
 #include "os/__init__.hpp"
-#include "stat.hpp"
 #include "deep.hpp"
 
 namespace __deep__ {
