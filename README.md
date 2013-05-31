@@ -65,7 +65,7 @@ Output
 ------
 
     breadth of dirs examined    longest pathname    deepest directory
-                        1000                  26                    2
+                        1000                  55                    5
 
     longest file: C:\some\really\long\filename_that_should_be_renamed.txt
     deepest path: C:\dwarves\digging\deep\deeper\deepest\balrog.log

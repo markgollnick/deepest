@@ -1,8 +1,8 @@
 #include "builtin.hpp"
-#include "sys.hpp"
 #include "os/__init__.hpp"
-#include "os/path.hpp"
 #include "stat.hpp"
+#include "sys.hpp"
+#include "os/path.hpp"
 #include "deep.hpp"
 
 namespace __deep__ {
@@ -138,7 +138,7 @@ void __init() {
     const_7 = __char_cache[46];;
     const_8 = new str("--help");
     const_9 = new str("--version");
-    const_10 = new str("\ndeep\nVersion %s\nWritten by Mark R. Gollnick <mark.r.gollnick@gmail.com> &#10013;\nDetermines the maximum depth of the current (or a specified) directory tree.\n\nusage:\n\n    deep [dir]\n\noutput:\n\n    breadth of dirs examined    longest pathname    deepest directory\n                        1000                  26                    2\n\n    longest file: C:\\some\\really\\long\\filename_that_should_be_renamed.txt\n    deepest path: C:\\dwarves\\digging\\deep\\deeper\\deepest\\balrog.log\n");
+    const_10 = new str("\ndeep\nVersion %s\nWritten by Mark R. Gollnick <mark.r.gollnick@gmail.com> &#10013;\nBoost Software License, Version 1.0: boost.org/LICENSE_1_0.txt\nDetermines the maximum depth of the current (or a specified) directory tree.\n\nusage:\n\n    deep [dir]\n\noutput:\n\n    breadth of dirs examined    longest pathname    deepest directory\n                        1000                  55                    5\n\n    longest file: C:\\some\\really\\long\\filename_that_should_be_renamed.txt\n    deepest path: C:\\dwarves\\digging\\deep\\deeper\\deepest\\balrog.log\n");
     const_11 = new str("0.9, 2013-05-31");
     const_12 = new str("__main__");
 
