@@ -1,8 +1,8 @@
 #include "builtin.hpp"
-#include "stat.hpp"
 #include "sys.hpp"
-#include "os/path.hpp"
 #include "os/__init__.hpp"
+#include "os/path.hpp"
+#include "stat.hpp"
 #include "deep.hpp"
 
 namespace __deep__ {
@@ -29,13 +29,14 @@ void *_get_depth(str *_, str *dirname, list<str *> *names) {
     */
     
     breadth = (breadth+1);
-    now_length = __int(___max(2, 0, max_length, len(dirname)));
-    now_depth = __int(___max(2, 0, max_depth, len(dirname->split(__os__::__path__::sep))));
-    if ((max_length!=now_length)) {
+    now_length = ___max(2, 0, max_length, len(dirname));
+    now_depth = len(dirname->split(__os__::__path__::sep));
+    now_depth = ___max(2, 0, max_depth, (now_depth-1));
+    if ((max_length<now_length)) {
         max_length = now_length;
         longest_file = dirname;
     }
-    if ((max_depth!=now_depth)) {
+    if ((max_depth<now_depth)) {
         max_depth = now_depth;
         deepest_path = dirname;
     }

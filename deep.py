@@ -31,14 +31,15 @@ def _get_depth(_, dirname, names):
 
     breadth += 1
 
-    now_length = int(max(max_length, len(dirname)))
-    now_depth = int(max(max_depth, len(dirname.split(os.path.sep))))
+    now_length = max(max_length, len(dirname)) # TODO: Support file names also
+    now_depth = len(dirname.split(os.path.sep))
+    now_depth = max(max_depth, now_depth - 1)
 
-    if max_length != now_length:
+    if max_length < now_length:
         max_length = now_length
         longest_file = dirname
 
-    if max_depth != now_depth:
+    if max_depth < now_depth:
         max_depth = now_depth
         deepest_path = dirname
 
