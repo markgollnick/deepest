@@ -13,7 +13,7 @@ extern __ss_int breadth, max_depth, max_length, now_depth, now_length;
 extern str *VERSION, *__name__, *deepest_path, *longest_file;
 
 
-void *_get_depth(str *_, str *dirname, list<str *> *names);
+void *_get_depth(str *_, str *dirname, list<str *> *files);
 void *print_header();
 void *print_update(__ss_int breadth, __ss_int length, __ss_int depth);
 void *print_footer();
