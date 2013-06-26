@@ -13,7 +13,7 @@ longest_file = ''
 deepest_path = ''
 
 
-def _get_depth(_, dirname, names):
+def _get_depth(_, dirname, files):
     """
     Function called during `os.path.walk` directory traversal.
 
@@ -22,17 +22,33 @@ def _get_depth(_, dirname, names):
 
     @param dirname: The name of the directory currently being examined.
     @type  dirname: str
-    @param names: The list of file names residing within the current directory.
-    @type  names: list or iterable
+    @param files: The list of file names residing within the current directory.
+    @type  files: list or iterable
     """
     global breadth
     global now_length, now_depth, max_length, max_depth
     global longest_file, deepest_path
+    fullname = ''
 
+    # "Breadth" is the total number of directories that have been examined.
     breadth += 1
 
-    now_length = max(max_length, len(dirname)) # TODO: Support file names also
-    now_depth = len(dirname.split(os.path.sep))
+    # "Length" is the longest path name encountered during the traversal.
+    if files:
+        for filename in files:
+            fullname = dirname + os.path.sep + filename
+            now_length = max(max_length, len(fullname))
+            if max_length < now_length:
+                max_length = now_length
+                longest_file = fullname
+    else: # No files in this directory; check the name of the directory itself
+        now_length = max(max_length, len(dirname))
+        if max_length < now_length:
+            max_length = now_length
+            longest_file = dirname
+
+    # "Depth" is the largest subdirectory chain encountered during traversal.
+    now_depth = len(dirname.split(os.sep))
     now_depth = max(max_depth, now_depth - 1)
 
     if max_length < now_length:
