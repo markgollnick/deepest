@@ -71,13 +71,6 @@ Output
     deepest path: C:\dwarves\digging\deep\deeper\deepest\balrog.log
 
 
-Limitations
------------
-
-Does not currently take filenames into account when calculating max pathname
-length. Will be added later (hence version 0.9).
-
-
 License
 -------
 

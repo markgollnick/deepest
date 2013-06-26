@@ -1,7 +1,7 @@
 import os
 import sys
 
-VERSION = '0.9, 2013-05-31'
+VERSION = '1.0, 2013-06-26'
 
 breadth = 0
 now_length = 0
