@@ -46,29 +46,34 @@ Installation
 
 **Python:**
 
-* Proper Python packaging coming soon. For now, `python deep.py` works.
+    python setup.py build install
 
 **C++:**
 
 1. Download and install [ShedSkin][].
-2. Edit `Makefile.shedskin` to match the paths on your system.
-3. Run `make build`.
+2. Edit `cpp/Makefile.shedskin` to match the paths on your system.
+3. Run `make build-cpp`.
 
 
 Usage
 -----
 
-    deep [dir]
+**Python:**
 
+    >>> import deep
+    >>> deep.get_depth('c:\\workspace')
+    ('c:\\workspace\\some\\really\\long\\directory\\chain\\here', 7)
+    >>> deep.get_length('c:\\workspace')
+    ('c:\\workspace\\dwarves\\digging\\deep\\deeper\\deepest\\balrog.log', 59)
 
-Output
-------
+**C++:**
 
+    $ deep c:\\workspace
     breadth of dirs examined    longest pathname    deepest directory
-                        1000                  55                    5
+                          12                  59                    7
 
-    longest file: C:\some\really\long\filename_that_should_be_renamed.txt
-    deepest path: C:\dwarves\digging\deep\deeper\deepest\balrog.log
+    longest file: c:\workspace\dwarves\digging\deep\deeper\deepest\balrog.log
+    deepest path: c:\workspace\some\really\long\directory\chain\here
 
 
 License
