@@ -1,11 +1,25 @@
-all install: cpp build
-	echo DONE! Now simply copy the deep executable to a directory on your PATH.
+all: python cpp build-cpp
 
-build:
-	make -f Makefile.shedskin
+install: install-python
 
-cpp:
-	shedskin -mMakefile.shedskin deep.py
+build-cpp:
+	cd cpp; make -f Makefile.shedskin
+	if [ ! -e "build" ]; then mkdir build; fi
+	if [ -e "cpp/deep" ]; then mv cpp/deep build/; fi
+	if [ -e "cpp/deep.exe" ]; then mv cpp/deep.exe build/; fi
 
 clean:
-	rm -f *.exe *.o *pp *.shedskin
+	rm -rf cpp
+	rm -rf build
+
+cpp:
+	cd deep; shedskin -mMakefile.shedskin deep.py
+	if [ ! -e "cpp" ]; then mkdir cpp; fi
+	mv deep/*pp cpp/
+	mv deep/Makefile.shedskin cpp/
+
+install-python:
+	python setup.py build install
+
+python:
+	python setup.py build
