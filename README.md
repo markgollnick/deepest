@@ -60,6 +60,17 @@ Usage
 
 **Python:**
 
+With Python, you can use it as a program…
+
+    $ python -m deep.deep c:\\workspace
+    breadth of dirs examined    longest pathname    deepest directory
+                          12                  59                    7
+
+    longest file: c:\workspace\dwarves\digging\deep\deeper\deepest\balrog.log
+    deepest path: c:\workspace\some\really\long\directory\chain\here
+
+…or, you can use it as a library:
+
     >>> import deep
     >>> deep.get_depth('c:\\workspace')
     ('c:\\workspace\\some\\really\\long\\directory\\chain\\here', 7)
@@ -74,6 +85,31 @@ Usage
 
     longest file: c:\workspace\dwarves\digging\deep\deeper\deepest\balrog.log
     deepest path: c:\workspace\some\really\long\directory\chain\here
+
+
+Speed
+-----
+
+In a project containing over 6000 directories with a max depth of 14, the
+Python and C++ versions (g++-4.6.2 compiled) were pitted against one another.
+Both versions were run three times each on a Windows 7 x64 machine (though in
+both cases the programs were run in 32-bit mode) with an Intel Core i7 CPU.
+
+These are the averaged results:
+
+    $ time python -m deep.deep ...
+    ...
+    real    0m31.571s
+    user    0m0.010s
+    sys     0m0.015s
+
+    $ time deep.exe ...
+    ...
+    real    0m28.047s
+    user    0m0.000s
+    sys     0m0.015s
+
+Thus, using the C++ version may gain you about a 10% speed boost. :-)
 
 
 License
