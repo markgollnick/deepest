@@ -37,7 +37,7 @@ Requirements
 
 * Python >= 2.6
 * ShedSkin >= 0.9.3 — *optional*
-* g++ >= 4.6.2 — *optional*
+* g++ >= 4.6.2 or clang++ >= 3.2 — *optional*
 * MinGW — *optional*
 
 
@@ -51,8 +51,8 @@ Installation
 **C++:**
 
 1. Download and install [ShedSkin][].
-2. Edit `cpp/Makefile.shedskin` to match the paths on your system.
-3. Run `make build-cpp`.
+2. Edit the `Makefile` and change paths to match those on your system.
+3. Run `make cpp`.
 
 
 Usage
