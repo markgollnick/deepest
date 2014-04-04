@@ -1,3 +1,5 @@
+"""Globals are generally a bad idea, but they make using ShedSkin easier."""
+
 breadth = 0
 
 now_length = 0

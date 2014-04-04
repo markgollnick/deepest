@@ -1,7 +1,9 @@
+"""Deep: determine the maximum depth of a directory tree."""
+
 import os
 import sys
 
-import globals # Needed for ShedSkin
+import globals  # Needed for ShedSkin
 
 from constants import DESCRIPTION
 from printer import print_header, print_footer
@@ -35,9 +37,7 @@ def get_length(dirname):
 
 
 def main():
-    """
-    Program entry.
-    """
+    """Program entry."""
     globals.runas_program = True
 
     path = '.'

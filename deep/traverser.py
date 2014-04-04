@@ -1,6 +1,8 @@
+"""Logic for traversing the filesystem."""
+
 import os
 
-import globals # Needed for ShedSkin
+import globals  # Needed for ShedSkin
 
 from printer import print_update
 
@@ -17,7 +19,6 @@ def traversal_callback(_, dirname, files):
     @param files: The list of file names residing within the current directory.
     @type  files: list or iterable
     """
-
     fullname = ''
 
     # "Breadth" is the total number of directories that have been examined.
@@ -31,7 +32,7 @@ def traversal_callback(_, dirname, files):
             if globals.max_length < globals.now_length:
                 globals.max_length = globals.now_length
                 globals.longest_file = fullname
-    else: # No files in this directory; check the name of the directory itself
+    else:  # No files in this directory; check the name of the directory itself
         globals.now_length = max(globals.max_length, len(dirname))
         if globals.max_length < globals.now_length:
             globals.max_length = globals.now_length

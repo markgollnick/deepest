@@ -6,7 +6,7 @@ def read(fname):
 
 setup(
     name = 'deep',
-    version = '1.1',
+    version = '1.1.2',
     author = 'Mark R. Gollnick',
     author_email = 'mark.r.gollnick@gmail.com',
     description = ('Determine the maximum depth and path length within '

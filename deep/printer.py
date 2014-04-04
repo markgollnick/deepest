@@ -1,19 +1,25 @@
+"""Printer for running on the command-line, and not as a library."""
+
 import sys
 
-import globals # Needed for ShedSkin
+import globals  # Needed for ShedSkin
 
 
 def print_header():
     """
-    Prints a table header to be displayed during directory traversal.
+    Print a table header to be displayed during directory traversal.
+
+    The header consists of the number of directories traversed, the length of
+    the longest pathname encountered, and the depth of the deepest directory
+    encountered thus far.
     """
-    print 'breadth of dirs examined    longest pathname    deepest directory'
-    print '                       0                   0                    0'
+    print('breadth of dirs examined    longest pathname    deepest directory')
+    sys.stdout.write('\033[s')  # Save cursor position
 
 
 def print_update(breadth, length, depth):
     """
-    Updates the results table with the new information.
+    Update the results table with new information.
 
     Will only work on consoles that support ANSI escape character sequences.
     Otherwise, will print a line-by-line series of updates. Workable, but ugly.
@@ -25,7 +31,7 @@ def print_update(breadth, length, depth):
     @param depth: The current deepest level in a path, in subdirectories.
     @type  depth: int
     """
-    sys.stdout.write('\x1b[#F') # move the cursor back to the previous line
+    sys.stdout.write('\033[u')  # Restore cursor position
     for _ in range(24 - len(str(breadth))):
         sys.stdout.write(' ')
     sys.stdout.write(str(breadth))
@@ -35,14 +41,15 @@ def print_update(breadth, length, depth):
     for _ in range(21 - len(str(depth))):
         sys.stdout.write(' ')
     sys.stdout.write(str(depth))
-    print '' # newline
 
 
 def print_footer():
     """
-    Prints the footer for the results table, containing the longest path and
-    deepest directory encountered.
+    Print the footer for the results table.
+
+    The footer contains the longest path and the deepest directory encountered.
     """
-    print ''
-    print 'longest file: %s' % globals.longest_file
-    print 'deepest path: %s' % globals.deepest_path
+    print('')  # newlines
+    print('')
+    print('longest file: %s' % globals.longest_file)
+    print('deepest path: %s' % globals.deepest_path)

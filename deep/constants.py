@@ -1,4 +1,4 @@
-VERSION = '1.1, 2013-08-15'
+VERSION = '1.1.2, 2014-04-04'
 
 DESCRIPTION = """
 deep
