@@ -25,11 +25,11 @@ def print_update(breadth, length, depth):
     Otherwise, will print a line-by-line series of updates. Workable, but ugly.
 
     @param breadth: The number of directories that have been examined.
-    @type  breadth: int
+    @type breadth: int
     @param length: The current largest length of a path, in characters.
-    @type  length: int
+    @type length: int
     @param depth: The current deepest level in a path, in subdirectories.
-    @type  depth: int
+    @type depth: int
     """
     sys.stdout.write('\033[u')  # Restore cursor position
     for _ in range(24 - len(str(breadth))):

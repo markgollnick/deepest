@@ -15,9 +15,9 @@ def traversal_callback(_, dirname, files):
     ShedSkin.
 
     @param dirname: The name of the directory currently being examined.
-    @type  dirname: str
+    @type dirname: str
     @param files: The list of file names residing within the current directory.
-    @type  files: list or iterable
+    @type files: list or iterable
     """
     fullname = ''
 

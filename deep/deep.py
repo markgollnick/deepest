@@ -15,9 +15,9 @@ def get_depth(dirname):
     Function for obtaining the deepest directory below `dirname`.
 
     @param dirname: The name of the directory to examine.
-    @type  dirname: str
-    @return       : The deepest directory, and its depth.
-    @rtype        : tuple
+    @type dirname: str
+    @return: The deepest directory, and its depth.
+    @rtype: tuple
     """
     os.path.walk(dirname, traversal_callback, '')
     return (globals.deepest_path, globals.max_depth)
@@ -28,9 +28,9 @@ def get_length(dirname):
     Function for obtaining the longest file/path name in `dirname`.
 
     @param dirname: The name of the directory to examine.
-    @type  dirname: str
-    @return       : The longest path, and the path length.
-    @rtype        : tuple
+    @type dirname: str
+    @return: The longest path, and the path length.
+    @rtype: tuple
     """
     os.path.walk(dirname, traversal_callback, '')
     return (globals.longest_file, globals.max_length)
