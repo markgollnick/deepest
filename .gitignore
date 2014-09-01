@@ -1,5 +1,5 @@
-*.pyc
-*.pyo
-*.o
 *.a
+*.o
+*.orig
+*.py[a-z]
 *~
