@@ -22,3 +22,6 @@ output:
     longest file: c:\\workspace\\dwarves\\digging\\deep\\deeper\\deepest\\balrog.log
     deepest path: c:\\workspace\\some\\really\\long\\directory\\chain\\here
 """ % VERSION  # NOQA
+
+SAVE_CHAR = '\033[s'  # Save cursor position
+LOAD_CHAR = '\033[u'  # Restore cursor position

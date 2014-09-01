@@ -6,6 +6,8 @@ from os import linesep
 
 import globals  # Needed for ShedSkin
 
+from constants import SAVE_CHAR, LOAD_CHAR
+
 
 def print_header():
     """
@@ -17,7 +19,7 @@ def print_header():
     """
     txt = 'breadth of dirs examined    longest pathname    deepest directory'
     sys.stdout.write(txt + linesep)
-    sys.stdout.write('\033[s')  # Save cursor position
+    sys.stdout.write(SAVE_CHAR)  # Save cursor position
 
 
 def print_update(breadth, length, depth):
@@ -34,7 +36,7 @@ def print_update(breadth, length, depth):
     @param depth: The current deepest level in a path, in subdirectories.
     @type depth: int
     """
-    sys.stdout.write('\033[u')  # Restore cursor position
+    sys.stdout.write(LOAD_CHAR)  # Restore cursor position
     for _ in range(24 - len(str(breadth))):
         sys.stdout.write(' ')
     sys.stdout.write(str(breadth))
