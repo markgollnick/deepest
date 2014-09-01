@@ -46,7 +46,7 @@ def main():
         path = sys.argv[1]
 
     if path == '--help' or path == '--version' or path == '-h':
-        print(DESCRIPTION)
+        sys.stdout.write(DESCRIPTION + os.linesep)
 
     else:
         print_header()

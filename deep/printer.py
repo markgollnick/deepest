@@ -2,6 +2,8 @@
 
 import sys
 
+from os import linesep
+
 import globals  # Needed for ShedSkin
 
 
@@ -13,7 +15,8 @@ def print_header():
     the longest pathname encountered, and the depth of the deepest directory
     encountered thus far.
     """
-    print('breadth of dirs examined    longest pathname    deepest directory')
+    txt = 'breadth of dirs examined    longest pathname    deepest directory'
+    sys.stdout.write(txt + linesep)
     sys.stdout.write('\033[s')  # Save cursor position
 
 
@@ -49,7 +52,6 @@ def print_footer():
 
     The footer contains the longest path and the deepest directory encountered.
     """
-    print('')  # newlines
-    print('')
-    print('longest file: %s' % globals.longest_file)
-    print('deepest path: %s' % globals.deepest_path)
+    sys.stdout.write(linesep + linesep)
+    sys.stdout.write('longest file: %s' % globals.longest_file + linesep)
+    sys.stdout.write('deepest path: %s' % globals.deepest_path + linesep)
