@@ -45,7 +45,7 @@ def main():
     if len(sys.argv) > 1:
         path = sys.argv[1]
 
-    if path == "--help" or path == "--version" or path == "-h":
+    if path == '--help' or path == '--version' or path == '-h':
         print(DESCRIPTION)
 
     else:
@@ -54,5 +54,5 @@ def main():
         print_footer()
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     main()
