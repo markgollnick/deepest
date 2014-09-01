@@ -42,10 +42,6 @@ def traversal_callback(_, dirname, files):
     globals.now_depth = len(dirname.split(os.sep))
     globals.now_depth = max(globals.max_depth, globals.now_depth - 1)
 
-    if globals.max_length < globals.now_length:
-        globals.max_length = globals.now_length
-        globals.longest_file = dirname
-
     if globals.max_depth < globals.now_depth:
         globals.max_depth = globals.now_depth
         globals.deepest_path = dirname
