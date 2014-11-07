@@ -2,9 +2,9 @@
 
 import os
 
-import globals  # Needed for ShedSkin
+from . import globals  # Needed for ShedSkin
 
-from printer import print_update
+from .printer import print_update
 
 
 def traversal_callback(_, dirname, files):

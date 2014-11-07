@@ -3,13 +3,19 @@
 """Deep: determine the maximum depth of a directory tree."""
 
 import os
+try:
+    from os.path import walk
+except ImportError:  # NOCOV
+    from os import walk as _walk  # Python >= 3.x
+    walk = lambda x, y, z: [y(z, path, files) for path, _, files in _walk(x)]
+
 import sys
 
-import globals  # Needed for ShedSkin
+from . import globals  # Needed for ShedSkin
 
-from constants import DESCRIPTION
-from printer import print_header, print_footer
-from traverser import traversal_callback
+from .constants import DESCRIPTION
+from .printer import print_header, print_footer
+from .traverser import traversal_callback
 
 
 def get_depth(dirname):
@@ -21,7 +27,7 @@ def get_depth(dirname):
     @return: The deepest directory, and its depth.
     @rtype: tuple
     """
-    os.path.walk(dirname, traversal_callback, '')
+    walk(dirname, traversal_callback, '')
     return (globals.deepest_path, globals.max_depth)
 
 
@@ -34,7 +40,7 @@ def get_length(dirname):
     @return: The longest path, and the path length.
     @rtype: tuple
     """
-    os.path.walk(dirname, traversal_callback, '')
+    walk(dirname, traversal_callback, '')
     return (globals.longest_file, globals.max_length)
 
 
@@ -52,7 +58,7 @@ def main():
 
     else:
         print_header()
-        os.path.walk(path, traversal_callback, '')
+        walk(path, traversal_callback, '')
         print_footer()
 
 
