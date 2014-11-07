@@ -21,10 +21,8 @@ class printer_BaseCase(TestCase):
 class print_header_TestCase(printer_BaseCase):
     def test_print_header(self):
         printer.print_header()
-        self.write_mock.assert_has_calls([
-            call(EXPECTATIONS[0] + printer.linesep),
-            call(printer.SAVE_CHAR)
-        ])
+        self.write_mock.assert_called_once_with(
+            EXPECTATIONS[0] + printer.linesep)
 
 
 class print_update_TestCase(printer_BaseCase):
@@ -40,7 +38,7 @@ class print_update_TestCase(printer_BaseCase):
     def test_print_update(self):
         printer.print_update('1', '12', '123')
         self.assertEqual(
-            printer.LOAD_CHAR + EXPECTATIONS[1],
+            '\r' + EXPECTATIONS[1],
             self.stdout_content)
 
 
