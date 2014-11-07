@@ -31,6 +31,7 @@ setup_args = dict(
     license='LICENSE.txt',
     keywords='deep directory structure depth file name path length',
     packages=['deep'],
+    scripts=[os.path.join('scripts', 'deep')]
 )
 
 
