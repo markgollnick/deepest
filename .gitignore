@@ -1,7 +1,15 @@
 *.a
+*.c
+*.cpp
+*.h
+*.hpp
 *.o
 *.orig
 *.py[a-z]
 *~
 .coverage
+MANIFEST
 build
+deep/Makefile
+deep/deep
+dist
