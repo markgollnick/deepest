@@ -30,7 +30,7 @@ setup_args = dict(
     url='https://github.com/markgollnick/deep',
     license='LICENSE.txt',
     keywords='deep directory structure depth file name path length',
-    py_modules=['deep']
+    packages=['deep'],
 )
 
 
