@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+
 """Deep: determine the maximum depth of a directory tree."""
 
 import os
@@ -15,9 +17,9 @@ def get_depth(dirname):
     Function for obtaining the deepest directory below `dirname`.
 
     @param dirname: The name of the directory to examine.
-    @type  dirname: str
-    @return       : The deepest directory, and its depth.
-    @rtype        : tuple
+    @type dirname: str
+    @return: The deepest directory, and its depth.
+    @rtype: tuple
     """
     os.path.walk(dirname, traversal_callback, '')
     return (globals.deepest_path, globals.max_depth)
@@ -28,9 +30,9 @@ def get_length(dirname):
     Function for obtaining the longest file/path name in `dirname`.
 
     @param dirname: The name of the directory to examine.
-    @type  dirname: str
-    @return       : The longest path, and the path length.
-    @rtype        : tuple
+    @type dirname: str
+    @return: The longest path, and the path length.
+    @rtype: tuple
     """
     os.path.walk(dirname, traversal_callback, '')
     return (globals.longest_file, globals.max_length)
@@ -45,8 +47,8 @@ def main():
     if len(sys.argv) > 1:
         path = sys.argv[1]
 
-    if path == "--help" or path == "--version" or path == "-h":
-        print DESCRIPTION
+    if path == '--help' or path == '--version' or path == '-h':
+        sys.stdout.write(DESCRIPTION + os.linesep)
 
     else:
         print_header()
@@ -54,5 +56,5 @@ def main():
         print_footer()
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     main()

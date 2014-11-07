@@ -1,4 +1,7 @@
-VERSION = '1.1.2, 2014-04-04'
+"""Deep: Constants File."""
+
+
+VERSION = 'v1.2.0, 2014-11-06'
 
 DESCRIPTION = """
 deep
@@ -18,4 +21,4 @@ output:
 
     longest file: c:\\workspace\\dwarves\\digging\\deep\\deeper\\deepest\\balrog.log
     deepest path: c:\\workspace\\some\\really\\long\\directory\\chain\\here
-""" % VERSION
+""" % VERSION  # NOQA

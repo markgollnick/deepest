@@ -15,9 +15,9 @@ def traversal_callback(_, dirname, files):
     ShedSkin.
 
     @param dirname: The name of the directory currently being examined.
-    @type  dirname: str
+    @type dirname: str
     @param files: The list of file names residing within the current directory.
-    @type  files: list or iterable
+    @type files: list or iterable
     """
     fullname = ''
 
@@ -41,10 +41,6 @@ def traversal_callback(_, dirname, files):
     # "Depth" is the largest subdirectory chain encountered during traversal.
     globals.now_depth = len(dirname.split(os.sep))
     globals.now_depth = max(globals.max_depth, globals.now_depth - 1)
-
-    if globals.max_length < globals.now_length:
-        globals.max_length = globals.now_length
-        globals.longest_file = dirname
 
     if globals.max_depth < globals.now_depth:
         globals.max_depth = globals.now_depth
