@@ -66,7 +66,8 @@ Installation
 1.  Download and install [ShedSkin][] ([instructions][]).
 2.  Run the following:
 
-        cd deep  # this is the dir INSIDE the project's root dir...
+        source 3to2  # Make some minor adjustments for ShedSkin compatibility
+        cd deep  # This is the dir INSIDE the project's root dir
         shedskin deep.py
         make
         # Alternatively, from the project's root dir...
