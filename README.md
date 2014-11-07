@@ -2,7 +2,7 @@
 ====
 
 [![Build Status](https://travis-ci.org/markgollnick/deep.svg?branch=master)](https://travis-ci.org/markgollnick/deep)
-[![Coverage Status](https://img.shields.io/coveralls/markgollnick/deep.svg)](https://coveralls.io/r/markgollnick/deep)
+[![Coverage Status](https://img.shields.io/coveralls/markgollnick/deep.svg)](https://coveralls.io/r/markgollnick/deep?branch=master)
 
 ![Diavik Diamond Mine, Canada](http://content.screencast.com/users/markgollnick/folders/Jing/media/ef41e433-1177-42fd-9b1b-783385c29044/deep.jpg)
 
@@ -39,8 +39,8 @@ Rationale
 Requirements
 ------------
 
-* Python >= 2.6
-* ShedSkin >= 0.9.3 — *optional*
+* Python >= 2.6, 2.7, 3.2, 3.3, 3.4, possibly more…
+* ShedSkin >= 0.9.3, 0.9.4 — *optional*
 * g++ >= 4.6.2 or clang++ >= 3.2 — *optional*
 * MinGW/MSYS (2012-04-26 catalog) — *optional*
 
@@ -50,7 +50,7 @@ Installation
 
 **Python (Users):**
 
-    pip install git+ssh://git@github.com/markgollnick/deep@v1.2.0#egg=deep-1.2.0
+    pip install git+ssh://git@github.com/markgollnick/deep@v1.3.0#egg=deep-1.3.0
 
 **Python (Developers):**
 
@@ -59,7 +59,7 @@ Installation
     python setup.py build install
     # Alternatively...
     make python
-    pip install dist/deep-1.2.0.tar.gz
+    pip install dist/deep-1.3.0.tar.gz
 
 **C++:**
 
@@ -103,7 +103,7 @@ Once compiled, it is a (notably faster) alternative to the Python script:
 
     $ deep c:\\workspace
     breadth of dirs examined    longest pathname    deepest directory
-                          12                  59                    7
+                          13                  59                    7
 
     longest file: c:\workspace\dwarves\digging\deep\deeper\deepest\balrog.log
     deepest path: c:\workspace\some\really\long\directory\chain\here
