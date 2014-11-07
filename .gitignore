@@ -4,3 +4,4 @@
 *.py[a-z]
 *~
 .coverage
+build
