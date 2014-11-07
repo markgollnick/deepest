@@ -3,3 +3,4 @@ v1.0, 2013-06-26 -- Feature-complete.
 v1.1, 2013-08-15 -- Code clean-up.
 v1.1.1, 2014-01-10 -- Code clean-up.
 v1.1.2, 2014-04-04 -- Fix cursor location on Mac OS X; add flake8 compliance.
+v1.2.0, 2014-11-06 -- 100% unit test coverage. Enable Travis-CI and Coveralls.
