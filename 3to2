@@ -1,0 +1,41 @@
+#!/bin/bash
+
+# This file fixes MINOR issues so that Python 2.x compatible Python 3.x code
+# will potentially compile with the ShedSkin C++ cross-compiler.
+
+for x in $(find . -iname "*.py"); do
+
+    # Change:
+    #     try:
+    #         python_2_operations()
+    #     except:
+    #         python_3_operations()
+    # To:
+    #     # try:
+    #     python_2_operations()
+    #     # except:
+    #     #     python_3_operations()
+
+    awk '/^try/,/^except/ {
+        $0="# " $0;
+        gsub("^#     ", "", $0)
+    } /^# except/,/^$/ {
+        $0="# " $0;
+        gsub("^# # ", "# ", $0);
+        gsub("^# $", "", $0)
+    } {
+        print
+    }' "$x" > "${x}.edit"
+
+    # Change:
+    #     from . import stuff
+    #     from .file import more_stuff
+    # To:
+    #     import stuff
+    #     from file import more_stuff
+
+    sed 's/from \. //g' "${x}.edit" |
+    sed 's/from \./from /g' > "$x"
+
+    rm -f "${x}.edit"
+done

@@ -21,6 +21,7 @@ package-python:
 cpp: compile-cpp build-cpp
 
 compile-cpp:
+	./3to2
 	cd deep; shedskin deep.py
 
 build-cpp:
