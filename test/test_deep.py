@@ -7,7 +7,7 @@ from deep import deep
 
 class deep_BaseCase(TestCase):
     def setUp(self):
-        self.walk_mock = patch.object(deep.os.path, 'walk').start()
+        self.walk_mock = patch.object(deep, 'walk').start()
 
         def get_depth_effect(*args, **kwargs):
             deep.globals.deepest_path = 'deepest_path'
@@ -57,7 +57,7 @@ class main_TestCase(TestCase):
         self.footer_mock = patch.object(deep, 'print_footer').start()
         self.header_mock = patch.object(deep, 'print_header').start()
         self.sys_mock = patch.object(deep, 'sys').start()
-        self.walk_mock = patch.object(deep.os.path, 'walk').start()
+        self.walk_mock = patch.object(deep, 'walk').start()
         self.write_mock = patch.object(deep.sys.stdout, 'write').start()
 
     def test_main_description(self):

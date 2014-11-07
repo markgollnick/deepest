@@ -4,7 +4,7 @@ import sys
 
 from os import linesep
 
-import globals  # Needed for ShedSkin
+from . import globals  # Needed for ShedSkin
 
 
 def print_header():
