@@ -60,7 +60,7 @@ class main_TestCase(TestCase):
         self.walk_mock = patch.object(deep, 'walk').start()
         self.write_mock = patch.object(deep.sys.stdout, 'write').start()
 
-    def test_main_description(self):
+    def test_main_print_help(self):
         self.sys_mock.argv = ['', '-h']
         deep.main()
         self.assertTrue(deep.globals.runas_program)
@@ -70,12 +70,12 @@ class main_TestCase(TestCase):
         self.write_mock.assert_called_once_with(
             deep.DESCRIPTION + deep.os.linesep)
 
-    def test_main_print(self):
-        self.sys_mock.argv = ['', 'dir']
+    def test_main_print_for_current_dir(self):
+        self.sys_mock.argv = ['']
         deep.main()
         self.assertTrue(deep.globals.runas_program)
         self.header_mock.assert_called_once_with()
         self.walk_mock.assert_called_once_with(
-            'dir', deep.traversal_callback, '')
+            '.', deep.traversal_callback, '')
         self.footer_mock.assert_called_once_with()
         self.assertFalse(self.write_mock.called)
