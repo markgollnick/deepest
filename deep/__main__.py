@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-"""Deep: CLI Entry."""
+"""CLI Entry."""
 
 from .deep import main  # NOQA
 

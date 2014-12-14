@@ -1,4 +1,4 @@
-"""Deep: Constants File."""
+"""Constants File."""
 
 
 VERSION = 'v1.3.0, 2014-11-06'

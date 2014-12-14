@@ -1,4 +1,4 @@
-"""Deep PyPI Package."""
+"""PyPI Package descriptor file."""
 
 import os
 from distutils.core import setup
