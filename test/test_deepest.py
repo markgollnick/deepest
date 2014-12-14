@@ -2,7 +2,7 @@ from unittest import TestCase
 
 from mock import patch
 
-from deep import deep
+from deep import deepest as deep
 
 
 class deep_BaseCase(TestCase):

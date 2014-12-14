@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-"""Deep: determine the maximum depth of a directory tree."""
+"""Deepest: determine the maximum depth of a directory tree."""
 
 import os
 try:

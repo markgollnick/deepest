@@ -2,7 +2,7 @@
 
 """CLI Entry."""
 
-from .deep import _main  # NOQA
+from .deepest import _main  # NOQA
 
 
 if __name__ == '__main__':
