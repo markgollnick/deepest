@@ -4,24 +4,31 @@ import os
 from distutils.core import setup
 
 
-def read(filename):
-    """Read file contents."""
-    f = open(os.path.join(os.path.dirname(__file__), filename))
-    contents = f.read()
-    f.close()
-    return contents
-
-
-def get_version():
-    """Return latest version noted in changefile."""
-    lastline = [line for line in read('CHANGES.txt').split('\n') if line][-1]
+def get_version(change_log):
+    """Return the latest version as noted in a change log."""
+    lastline = [ln.strip() for ln in read(change_log).split('\n') if ln][-1]
     version = lastline.split(',')[0]
     return version[1:]
 
 
+def read(file_name):
+    """Read file contents."""
+    f = None
+    data = ''
+    try:
+        f = open(file_name, 'rb')
+        data = f.read().decode('utf-8')
+    except:
+        pass
+    finally:
+        if f:
+            f.close()
+        return data
+
+
 setup_args = dict(
     name='deep',
-    version=get_version(),
+    version=get_version('CHANGES.txt'),
     description=('Determine the maximum depth and path length within '
                  'the current (or a specified) directory tree.'),
     long_description=read('README.md'),
