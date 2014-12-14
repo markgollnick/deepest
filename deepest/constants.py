@@ -1,7 +1,7 @@
 """Constants File."""
 
 
-VERSION = 'v1.3.0, 2014-11-06'
+VERSION = 'v2.0.0, 2014-12-14'
 
 DESCRIPTION = """
 deepest

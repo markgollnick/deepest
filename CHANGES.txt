@@ -5,3 +5,4 @@ v1.1.1, 2014-01-10 -- Code clean-up.
 v1.1.2, 2014-04-04 -- Fix cursor location on Mac OS X; add flake8 compliance.
 v1.2.0, 2014-11-06 -- 100% unit test coverage. Enable Travis-CI and Coveralls.
 v1.3.0, 2014-11-06 -- Python 3.x support
+v2.0.0, 2014-12-14 -- Rename project from "deep" to "deepest". Now on PyPI!

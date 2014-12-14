@@ -50,7 +50,7 @@ Installation
 
 **Python (Users):**
 
-    pip install git+ssh://git@github.com/markgollnick/deepest@v1.3.0#egg=deepest-1.3.0
+    pip install git+ssh://git@github.com/markgollnick/deepest@v2.0.0#egg=deepest-2.0.0
 
 **Python (Developers):**
 
@@ -59,7 +59,7 @@ Installation
     python setup.py build install
     # Alternatively...
     make python
-    pip install dist/deepest-1.3.0.tar.gz
+    pip install dist/deepest-2.0.0.tar.gz
 
 **C++:**
 
