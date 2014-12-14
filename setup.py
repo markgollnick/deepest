@@ -27,18 +27,18 @@ def read(file_name):
 
 
 setup_args = dict(
-    name='deep',
+    name='deepest',
     version=get_version('CHANGES.txt'),
     description=('Determine the maximum depth and path length within '
                  'the current (or a specified) directory tree.'),
     long_description=read('README.md'),
     author='Mark R. Gollnick &#10013;',
     author_email='mark.r.gollnick@gmail.com',
-    url='https://github.com/markgollnick/deep',
+    url='https://github.com/markgollnick/deepest',
     license='LICENSE.txt',
-    keywords='deep directory structure depth file name path length',
-    packages=['deep'],
-    scripts=[os.path.join('scripts', 'deep')]
+    keywords='deepest directory structure depth file name path length',
+    packages=['deepest'],
+    scripts=[os.path.join('scripts', 'deepest')]
 )
 
 

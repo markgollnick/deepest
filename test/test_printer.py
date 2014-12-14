@@ -2,7 +2,7 @@ from unittest import TestCase
 
 from mock import call, patch
 
-from deep import printer
+from deepest import printer
 
 
 EXPECTATIONS = [

@@ -1,8 +1,8 @@
-﻿deep
-====
+﻿deepest
+=======
 
-[![Build Status](https://travis-ci.org/markgollnick/deep.svg?branch=master)](https://travis-ci.org/markgollnick/deep)
-[![Coverage Status](https://img.shields.io/coveralls/markgollnick/deep.svg)](https://coveralls.io/r/markgollnick/deep?branch=master)
+[![Build Status](https://travis-ci.org/markgollnick/deepest.svg?branch=master)](https://travis-ci.org/markgollnick/deepest)
+[![Coverage Status](https://img.shields.io/coveralls/markgollnick/deepest.svg)](https://coveralls.io/r/markgollnick/deepest?branch=master)
 
 ![Diavik Diamond Mine, Canada](http://content.screencast.com/users/markgollnick/folders/Jing/media/ef41e433-1177-42fd-9b1b-783385c29044/deep.jpg)
 
@@ -12,7 +12,7 @@
 > *— Gandalf, from “The Lord of the Rings: The Fellowship of the Ring”,
 > by J.R.R. Tolkein*
 
-***deep*** — A cross-platform (and cross-language) command-line utility written
+***deepest*** — A cross-platform (and cross-language) command-line utility used
 to determine the maximum depth of the current (or a specified) directory tree.
 
 Available in both Python and C++ flavors (via the [ShedSkin][] libraries).
@@ -50,16 +50,16 @@ Installation
 
 **Python (Users):**
 
-    pip install git+ssh://git@github.com/markgollnick/deep@v1.3.0#egg=deep-1.3.0
+    pip install git+ssh://git@github.com/markgollnick/deepest@v1.3.0#egg=deepest-1.3.0
 
 **Python (Developers):**
 
-    git clone git@github.com:markgollnick/deep.git
-    cd deep
+    git clone git@github.com:markgollnick/deepest.git
+    cd deepest
     python setup.py build install
     # Alternatively...
     make python
-    pip install dist/deep-1.3.0.tar.gz
+    pip install dist/deepest-1.3.0.tar.gz
 
 **C++:**
 
@@ -67,8 +67,8 @@ Installation
 2.  Run the following:
 
         source 3to2  # Make some minor adjustments for ShedSkin compatibility
-        cd deep  # This is the dir INSIDE the project's root dir
-        shedskin deep.py
+        cd deepest  # This is the dir INSIDE the project's root dir
+        shedskin deepest.py
         make
         # Alternatively, from the project's root dir...
         make cpp
@@ -83,7 +83,7 @@ Usage
 
 Once installed, you can use it as a script…
 
-    $ deep .
+    $ deepest .
     breadth of dirs examined    longest pathname    deepest directory
                           13                  58                    7
 
@@ -92,17 +92,17 @@ Once installed, you can use it as a script…
 
 …or, you can use it as a library:
 
-    >>> import deep
-    >>> deep.get_depth('c:\\workspace')
+    >>> import deepest
+    >>> deepest.get_depth('c:\\workspace')
     ('c:\\workspace\\some\\really\\long\\directory\\chain\\here', 7)
-    >>> deep.get_length('c:\\workspace')
+    >>> deepest.get_length('c:\\workspace')
     ('c:\\workspace\\dwarves\\digging\\deep\\deeper\\deepest\\balrog.log', 59)
 
 **C++:**
 
 Once compiled, it is a (notably faster) alternative to the Python script:
 
-    $ deep c:\\workspace
+    $ deepest c:\\workspace
     breadth of dirs examined    longest pathname    deepest directory
                           13                  59                    7
 
@@ -119,13 +119,13 @@ other. Both versions were run three times each on a Late 2013 Mac Book Pro.
 
 These are the averaged results:
 
-    $ time deep
+    $ time deepest
     ...
     real    0m0.423s
     user    0m0.244s
     sys     0m0.160s
 
-    $ time deep
+    $ time deepest
     ...
     real    0m0.169s
     user    0m0.063s

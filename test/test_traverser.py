@@ -2,7 +2,7 @@ from unittest import TestCase
 
 from mock import patch
 
-from deep import traverser
+from deepest import traverser
 
 sep = traverser.os.path.sep
 

@@ -22,10 +22,10 @@ cpp: compile-cpp build-cpp
 
 compile-cpp:
 	./3to2
-	cd deep; shedskin deep.py
+	cd deepest; shedskin deepest.py
 
 build-cpp:
-	cd deep; make
+	cd deepest; make
 
 
 # Cleanup
@@ -33,7 +33,7 @@ build-cpp:
 clean:
 	rm -rf build
 	rm -rf dist
-	rm -f deep/Makefile
-	rm -f deep/deep{,.exe}
+	rm -f deepest/Makefile
+	rm -f deepest/deepest{,.exe}
 	find . -iname "*.pyc" -print -exec rm -f \{\} \;
 	find . -iname "*pp" -print -exec rm -f \{\} \;

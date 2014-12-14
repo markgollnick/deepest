@@ -3,4 +3,4 @@ exclude_lines =
     if __name__ == .__main__.:
     pragma: no cover
 omit =
-    deep/__main__.py
+    deepest/__main__.py
