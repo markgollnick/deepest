@@ -5,7 +5,7 @@
 import os
 try:
     from os.path import walk
-except ImportError:  # NOCOV
+except ImportError:  # pragma: no cover
     from os import walk as _walk  # Python >= 3.x
     walk = lambda x, y, z: [y(z, path, files) for path, _, files in _walk(x)]
 
