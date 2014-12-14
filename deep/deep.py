@@ -44,7 +44,7 @@ def get_length(dirname):
     return (globals.longest_file, globals.max_length)
 
 
-def main():
+def _main():
     """Program entry."""
     globals.runas_program = True
 
@@ -63,4 +63,4 @@ def main():
 
 
 if __name__ == '__main__':
-    main()
+    _main()

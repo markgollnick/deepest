@@ -62,7 +62,7 @@ class main_TestCase(TestCase):
 
     def test_main_print_help(self):
         self.sys_mock.argv = ['', '-h']
-        deep.main()
+        deep._main()
         self.assertTrue(deep.globals.runas_program)
         self.assertFalse(self.footer_mock.called)
         self.assertFalse(self.header_mock.called)
@@ -72,7 +72,7 @@ class main_TestCase(TestCase):
 
     def test_main_print_for_current_dir(self):
         self.sys_mock.argv = ['']
-        deep.main()
+        deep._main()
         self.assertTrue(deep.globals.runas_program)
         self.header_mock.assert_called_once_with()
         self.walk_mock.assert_called_once_with(
