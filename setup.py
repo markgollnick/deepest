@@ -1,6 +1,6 @@
 """PyPI Package descriptor file."""
 
-import os
+from ConfigParser import ConfigParser
 from distutils.core import setup
 
 
@@ -26,36 +26,19 @@ def read(file_name):
         return data
 
 
-author_string = 'Mark R. Gollnick &#10013; <mark.r.gollnick@gmail.com>'
-author, author_email = author_string.rsplit(' ', 1)
+cfg = ConfigParser()
+cfg.read('setup.cfg')
+setup_args = dict(cfg.items('setup'))
 
-setup_args = {
-    'name': 'deepest',
-    'version': get_version('CHANGES.txt'),
-    'author': author,
-    'author_email': author_email,
-    'maintainer': author,
-    'maintainer_email': author_email,
-    'url': 'https://github.com/markgollnick/deepest',
-    'license': read('LICENSE.txt'),
-    'description': (
-        'Determine the maximum depth and path length within the current (or a '
-        'specified) directory tree.'
-    ),
-    'long_description': read('README.rst'),
-    'keywords': (
-        'deep, deeper, deepest, directory, folder, structure, depth, file, '
-        'name, filename, path, length'
-    ),
-    # 'platforms': None,
-    # 'download_url': None,
-    # 'requires': None,
-    # 'provides': None,
-    # 'obsoletes': None,
-    # 'classifiers': None,
-    'packages': ['deepest'],
-    'scripts': [os.path.join('scripts', 'deepest')]
-}
+
+for key, val in setup_args.items():
+    if key.endswith('_file'):
+        data = get_version(val) if key.startswith('version') else read(val)
+        setup_args[key[:-5]] = data
+        del setup_args[key]
+    if key.endswith('_list'):
+        setup_args[key[:-5]] = [val.strip() for val in val.split(',')]
+        del setup_args[key]
 
 
 if __name__ == '__main__':
