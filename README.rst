@@ -18,7 +18,7 @@
     world.”*
 
     *— Gandalf, from “The Lord of the Rings: The Fellowship of the Ring”, by
-    J.R.R. Tolkein*
+    J.R.R. Tolkien*
 
 **deepest** — A cross-platform (and cross-language) command-line utility used
 to determine the maximum depth of the current (or a specified) directory tree.
