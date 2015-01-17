@@ -10,6 +10,6 @@
 .coverage
 MANIFEST
 build
-deep/Makefile
-deep/deep
+deepest/Makefile
+deepest/deepest
 dist

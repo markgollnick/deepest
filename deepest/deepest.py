@@ -1,11 +1,11 @@
 #!/usr/bin/env python
 
-"""Deep: determine the maximum depth of a directory tree."""
+"""Deepest: determine the maximum depth of a directory tree."""
 
 import os
 try:
     from os.path import walk
-except ImportError:  # NOCOV
+except ImportError:  # pragma: no cover
     from os import walk as _walk  # Python >= 3.x
     walk = lambda x, y, z: [y(z, path, files) for path, _, files in _walk(x)]
 
@@ -44,7 +44,7 @@ def get_length(dirname):
     return (globals.longest_file, globals.max_length)
 
 
-def main():
+def _main():
     """Program entry."""
     globals.runas_program = True
 
@@ -63,4 +63,4 @@ def main():
 
 
 if __name__ == '__main__':
-    main()
+    _main()

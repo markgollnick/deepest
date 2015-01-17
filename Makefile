@@ -1,3 +1,12 @@
+# Target Search Path
+VPATH := .
+
+# Phony target (targets in this list can always be re-run, regardless of state)
+.PHONY: all python build-python package-python cpp compile-cpp build-cpp clean
+
+
+# Default target
+
 all:
 	@echo Select a target:
 	@echo \ \ \ \ make python \(build-python, package-python\)
@@ -7,7 +16,7 @@ all:
 
 # Python targets
 
-python: build-python package-python
+python: clean build-python package-python
 
 build-python:
 	python setup.py build
@@ -22,10 +31,10 @@ cpp: compile-cpp build-cpp
 
 compile-cpp:
 	./3to2
-	cd deep; shedskin deep.py
+	cd deepest; shedskin deepest.py
 
 build-cpp:
-	cd deep; make
+	cd deepest; make
 
 
 # Cleanup
@@ -33,7 +42,7 @@ build-cpp:
 clean:
 	rm -rf build
 	rm -rf dist
-	rm -f deep/Makefile
-	rm -f deep/deep{,.exe}
+	rm -f deepest/Makefile
+	rm -f deepest/deepest{,.exe}
 	find . -iname "*.pyc" -print -exec rm -f \{\} \;
 	find . -iname "*pp" -print -exec rm -f \{\} \;

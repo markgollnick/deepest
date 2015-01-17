@@ -1,38 +1,44 @@
-"""Deep PyPI Package."""
+"""PyPI Package descriptor file."""
 
-import os
+from ConfigParser import ConfigParser
 from distutils.core import setup
 
 
-def read(filename):
-    """Read file contents."""
-    f = open(os.path.join(os.path.dirname(__file__), filename))
-    contents = f.read()
-    f.close()
-    return contents
-
-
-def get_version():
-    """Return latest version noted in changefile."""
-    lastline = [line for line in read('CHANGES.txt').split('\n') if line][-1]
+def get_version(change_log):
+    """Return the latest version as noted in a change log."""
+    lastline = [ln.strip() for ln in read(change_log).split('\n') if ln][-1]
     version = lastline.split(',')[0]
     return version[1:]
 
 
-setup_args = dict(
-    name='deep',
-    version=get_version(),
-    description=('Determine the maximum depth and path length within '
-                 'the current (or a specified) directory tree.'),
-    long_description=read('README.md'),
-    author='Mark R. Gollnick &#10013;',
-    author_email='mark.r.gollnick@gmail.com',
-    url='https://github.com/markgollnick/deep',
-    license='LICENSE.txt',
-    keywords='deep directory structure depth file name path length',
-    packages=['deep'],
-    scripts=[os.path.join('scripts', 'deep')]
-)
+def read(file_name):
+    """Read file contents."""
+    f = None
+    data = ''
+    try:
+        f = open(file_name, 'rb')
+        data = f.read().decode('utf-8')
+    except:
+        pass
+    finally:
+        if f:
+            f.close()
+        return data
+
+
+cfg = ConfigParser()
+cfg.read('setup.cfg')
+setup_args = dict(cfg.items('setup'))
+
+
+for key, val in setup_args.items():
+    if key.endswith('_file'):
+        data = get_version(val) if key.startswith('version') else read(val)
+        setup_args[key[:-5]] = data
+        del setup_args[key]
+    if key.endswith('_list'):
+        setup_args[key[:-5]] = [val.strip() for val in val.split(',')]
+        del setup_args[key]
 
 
 if __name__ == '__main__':

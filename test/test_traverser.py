@@ -2,7 +2,7 @@ from unittest import TestCase
 
 from mock import patch
 
-from deep import traverser
+from deepest import traverser
 
 sep = traverser.os.path.sep
 
@@ -56,3 +56,31 @@ class traversal_callback_TestCase(TestCase):
             traverser.globals.longest_file)
         self.assertEqual('dir' + sep + 'sub', traverser.globals.deepest_path)
         self.update_mock.assert_called_once_with(1, 12, 1)
+
+    def test_traversal_callback_non_incrementing_case_with_files(self):
+        traverser.globals.max_length = 99
+        traverser.globals.max_depth = 99
+        traverser.traversal_callback(
+            None, 'dir' + sep + 'sub', ['file', 'longfile'])
+        self.assertEqual(1, traverser.globals.breadth)
+        self.assertEqual(99, traverser.globals.now_length)
+        self.assertEqual(99, traverser.globals.max_length)
+        self.assertEqual(99, traverser.globals.now_depth)
+        self.assertEqual(99, traverser.globals.max_depth)
+        self.assertEqual('', traverser.globals.longest_file)
+        self.assertEqual('', traverser.globals.deepest_path)
+        self.assertFalse(self.update_mock.called)
+
+    def test_traversal_callback_non_incrementing_case_without_files(self):
+        traverser.globals.max_length = 99
+        traverser.globals.max_depth = 99
+        traverser.traversal_callback(
+            None, 'dir' + sep + 'sub', [])
+        self.assertEqual(1, traverser.globals.breadth)
+        self.assertEqual(99, traverser.globals.now_length)
+        self.assertEqual(99, traverser.globals.max_length)
+        self.assertEqual(99, traverser.globals.now_depth)
+        self.assertEqual(99, traverser.globals.max_depth)
+        self.assertEqual('', traverser.globals.longest_file)
+        self.assertEqual('', traverser.globals.deepest_path)
+        self.assertFalse(self.update_mock.called)

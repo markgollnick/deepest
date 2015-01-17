@@ -1,10 +1,10 @@
-"""Deep: Constants File."""
+"""Constants File."""
 
 
-VERSION = 'v1.3.0, 2014-11-06'
+VERSION = 'v2.0.0, 2014-12-14'
 
 DESCRIPTION = """
-deep
+deepest
 Version %s
 Written by Mark R. Gollnick <mark.r.gollnick@gmail.com> &#10013;
 Boost Software License, Version 1.0: boost.org/LICENSE_1_0.txt
@@ -12,7 +12,7 @@ Determines the maximum depth of the current (or a specified) directory tree.
 
 usage:
 
-    deep [dir]
+    deepest [dir]
 
 output:
 

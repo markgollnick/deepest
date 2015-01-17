@@ -1,6 +1,6 @@
 [report]
 exclude_lines =
     if __name__ == .__main__.:
-    .*  # NOCOV
+    pragma: no cover
 omit =
-    deep/__main__.py
+    deepest/__main__.py
