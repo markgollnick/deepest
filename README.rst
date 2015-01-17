@@ -1,4 +1,5 @@
-﻿=======
+﻿
+=======
 deepest
 =======
 
@@ -9,6 +10,8 @@ deepest
 .. image:: https://coveralls.io/repos/markgollnick/deepest/badge.svg?branch=master
     :target: https://coveralls.io/r/markgollnick/deepest?branch=master
     :alt: Coverage Status
+
+|
 
 .. image:: http://content.screencast.com/users/markgollnick/folders/Jing/media/ef41e433-1177-42fd-9b1b-783385c29044/deep.jpg
     :alt: Diavik Diamond Mine, Canada
