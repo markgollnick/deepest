@@ -26,20 +26,36 @@ def read(file_name):
         return data
 
 
-setup_args = dict(
-    name='deepest',
-    version=get_version('CHANGES.txt'),
-    description=('Determine the maximum depth and path length within '
-                 'the current (or a specified) directory tree.'),
-    long_description=read('README.md'),
-    author='Mark R. Gollnick &#10013;',
-    author_email='mark.r.gollnick@gmail.com',
-    url='https://github.com/markgollnick/deepest',
-    license='LICENSE.txt',
-    keywords='deepest directory structure depth file name path length',
-    packages=['deepest'],
-    scripts=[os.path.join('scripts', 'deepest')]
-)
+author_string = 'Mark R. Gollnick &#10013; <mark.r.gollnick@gmail.com>'
+author, author_email = author_string.rsplit(' ', 1)
+
+setup_args = {
+    'name': 'deepest',
+    'version': get_version('CHANGES.txt'),
+    'author': author,
+    'author_email': author_email,
+    'maintainer': author,
+    'maintainer_email': author_email,
+    'url': 'https://github.com/markgollnick/deepest',
+    'license': read('LICENSE.txt'),
+    'description': (
+        'Determine the maximum depth and path length within the current (or a '
+        'specified) directory tree.'
+    ),
+    'long_description': read('README.rst'),
+    'keywords': (
+        'deep, deeper, deepest, directory, folder, structure, depth, file, '
+        'name, filename, path, length'
+    ),
+    # 'platforms': None,
+    # 'download_url': None,
+    # 'requires': None,
+    # 'provides': None,
+    # 'obsoletes': None,
+    # 'classifiers': None,
+    'packages': ['deepest'],
+    'scripts': [os.path.join('scripts', 'deepest')]
+}
 
 
 if __name__ == '__main__':
