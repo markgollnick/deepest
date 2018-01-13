@@ -13,7 +13,7 @@ deepest
 
 |
 
-.. image:: http://content.screencast.com/users/markgollnick/folders/Jing/media/ef41e433-1177-42fd-9b1b-783385c29044/deep.jpg
+.. image:: https://raw.githubusercontent.com/markgollnick/deepest/master/deep.jpg
     :alt: Diavik Diamond Mine, Canada
 
 ..
