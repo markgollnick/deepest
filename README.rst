@@ -54,7 +54,7 @@ Rationale
 Requirements
 ------------
 
-* Python >= 2.6, 2.7, 3.2, 3.3, 3.4, possibly more…
+* Python >= 2.7, 3.2, 3.3, 3.4, 3.5, 3.6
 * ShedSkin >= 0.9.3, 0.9.4 — *optional*
 * g++ >= 4.6.2 or clang++ >= 3.2 — *optional*
 * MinGW/MSYS (2012-04-26 catalog) — *optional*

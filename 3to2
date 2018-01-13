@@ -1,10 +1,11 @@
-#!/bin/bash
+#!/bin/sh
 
 # This file fixes MINOR issues so that Python 2.x compatible Python 3.x code
 # will potentially compile with the ShedSkin C++ cross-compiler.
 
-for x in $(find . -iname "*.py"); do
-
+find "${1:-usage: ./3to2 <dir>}" -iname "*.py" \
+  | \
+  while IFS="" read -r py_file; do
     # Change:
     #     try:
     #         python_2_operations()
@@ -25,7 +26,7 @@ for x in $(find . -iname "*.py"); do
         gsub("^# $", "", $0)
     } {
         print
-    }' "$x" > "${x}.edit"
+    }' "$py_file" > "${py_file}.edit"
 
     # Change:
     #     from . import stuff
@@ -34,8 +35,8 @@ for x in $(find . -iname "*.py"); do
     #     import stuff
     #     from file import more_stuff
 
-    sed 's/from \. //g' "${x}.edit" |
-    sed 's/from \./from /g' > "$x"
+    sed 's/from \. //g' "${py_file}.edit" \
+      | sed 's/from \./from /g' > "$py_file"
 
-    rm -f "${x}.edit"
-done
+    rm -f "${py_file}.edit"
+  done

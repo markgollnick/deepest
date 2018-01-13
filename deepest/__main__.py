@@ -2,8 +2,8 @@
 
 """CLI Entry."""
 
-from .deepest import _main  # NOQA
+from .deepest import main  # NOQA
 
 
 if __name__ == '__main__':
-    _main()
+    main()
