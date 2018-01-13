@@ -1,6 +1,7 @@
 *.a
 *.c
 *.cpp
+*.egg-info
 *.h
 *.hpp
 *.o

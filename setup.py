@@ -1,6 +1,11 @@
 """PyPI Package descriptor file."""
+import ast
 
-from ConfigParser import ConfigParser
+try:
+    from configparser import ConfigParser
+except ImportError:  # Python <3
+    from ConfigParser import ConfigParser
+
 from distutils.core import setup
 
 
@@ -36,8 +41,13 @@ for key, val in setup_args.items():
         data = get_version(val) if key.startswith('version') else read(val)
         setup_args[key[:-5]] = data
         del setup_args[key]
-    if key.endswith('_list'):
-        setup_args[key[:-5]] = [val.strip() for val in val.split(',')]
+    elif key.endswith('_dict'):
+        data = ast.literal_eval(val)
+        setup_args[key[:-5]] = data
+        del setup_args[key]
+    elif key.endswith('_list'):
+        data = val.split()
+        setup_args[key[:-5]] = data
         del setup_args[key]
 
 
